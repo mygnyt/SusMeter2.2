@@ -60,7 +60,7 @@ export async function resolveVanityUrl(vanityUrl: string, apiKey: string = STEAM
     const url = `https://api.steampowered.com/ISteamUser/ResolveVanityURL/v1/?key=${apiKey}&vanityurl=${encodeURIComponent(
       vanityUrl
     )}`;
-    const res = await fetch(url, { next: { revalidate: 60 } });
+    const res = await fetch(url, { next: { revalidate: 60 }, signal: AbortSignal.timeout(5000) });
     if (!res.ok) return null;
     const data = await res.json();
     if (data?.response?.success === 1 && data?.response?.steamid) {
@@ -85,16 +85,19 @@ export async function fetchFullSteamProfile(
     const [summariesRes, bansRes, gamesRes, friendsRes] = await Promise.allSettled([
       fetch(`https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/?key=${apiKey}&steamids=${steamId}`, {
         next: { revalidate: 30 },
+        signal: AbortSignal.timeout(5000),
       }).then((r) => (r.ok ? r.json() : null)),
       fetch(`https://api.steampowered.com/ISteamUser/GetPlayerBans/v1/?key=${apiKey}&steamids=${steamId}`, {
         next: { revalidate: 30 },
+        signal: AbortSignal.timeout(5000),
       }).then((r) => (r.ok ? r.json() : null)),
       fetch(
         `https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=${apiKey}&steamid=${steamId}&include_appinfo=1&include_played_free_games=1`,
-        { next: { revalidate: 30 } }
+        { next: { revalidate: 30 }, signal: AbortSignal.timeout(5000) }
       ).then((r) => (r.ok ? r.json() : null)),
       fetch(`https://api.steampowered.com/ISteamUser/GetFriendList/v1/?key=${apiKey}&steamid=${steamId}&relationship=friend`, {
         next: { revalidate: 60 },
+        signal: AbortSignal.timeout(5000),
       }).then((r) => (r.ok ? r.json() : null)),
     ]);
 
@@ -140,7 +143,10 @@ export async function fetchFullSteamProfile(
         const friendBansUrl = `https://api.steampowered.com/ISteamUser/GetPlayerBans/v1/?key=${apiKey}&steamids=${sample.join(
           ','
         )}`;
-        const friendBansRes = await fetch(friendBansUrl, { next: { revalidate: 120 } });
+        const friendBansRes = await fetch(friendBansUrl, {
+          next: { revalidate: 120 },
+          signal: AbortSignal.timeout(5000),
+        });
         if (friendBansRes.ok) {
           const friendBansJson = await friendBansRes.json();
           const playersBans = friendBansJson?.players || [];
