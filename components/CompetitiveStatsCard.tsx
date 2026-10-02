@@ -48,7 +48,7 @@ export function CompetitiveStatsCard({
           {hasCSStats ? (
             <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-emerald-950/60 text-emerald-400 border border-emerald-800/40">
               <CheckCircle2 className="w-3 h-3" />
-              CSStats.gg
+              {csstats.source === 'csstats' ? 'CSStats.gg' : 'CS2 Stats (Steam)'}
             </span>
           ) : hasManual ? (
             <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-indigo-950/60 text-indigo-300 border border-indigo-800/40">
@@ -57,7 +57,7 @@ export function CompetitiveStatsCard({
             </span>
           ) : (
             <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] text-slate-400 bg-slate-800/60 border border-slate-700/40">
-              Нет данных CSStats
+              Статистика скрыта
             </span>
           )}
 
@@ -131,8 +131,8 @@ export function CompetitiveStatsCard({
         <div className="bg-[#111620]/60 border border-white/5 rounded-lg p-3 text-xs text-slate-400 flex items-start gap-2.5">
           <Info className="w-4 h-4 text-slate-500 shrink-0 mt-0.5" />
           <p className="leading-relaxed">
-            Матчи не зафиксированы в базе CSStats.gg (или профиль закрыт приватностью). Вы можете
-            раскрыть спойлер выше и ввести K/D, HS% и матчи вручную для более точной оценки.
+            {csstats?.message ||
+              'Соревновательная статистика скрыта в Steam (Game details: Private) либо матчи ещё не сыграны. Откройте профиль на csstats.gg или раскройте спойлер выше, чтобы ввести K/D и HS% вручную.'}
           </p>
         </div>
       )}
