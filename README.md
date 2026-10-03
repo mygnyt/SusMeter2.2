@@ -10,8 +10,9 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![Framer Motion](https://img.shields.io/badge/Framer_Motion-11.11-FF0055?style=for-the-badge&logo=framer&logoColor=white)](https://www.framer.com/motion/)
 [![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://sus-meter2-2.vercel.app)
+[![Telegram Bot](https://img.shields.io/badge/Telegram_Bot-@SusMetr__bot-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/SusMetr_bot)
 
-**[🌐 Открыть веб-приложение](https://sus-meter2-2.vercel.app)** • **[📱 Telegram Mini App](https://sus-meter2-2.vercel.app)** • **[📦 GitHub Репозиторий](https://github.com/mygnyt/SusMeter2.2)**
+**[🌐 Открыть веб-приложение](https://sus-meter2-2.vercel.app)** • **[🤖 Telegram Бот (@SusMetr_bot)](https://t.me/SusMetr_bot)** • **[📦 GitHub Репозиторий](https://github.com/mygnyt/SusMeter2.2)**
 
 </div>
 
@@ -56,9 +57,10 @@
   * `[-5]` поощрение за нормальный среднестатистический K/D опытного игрока.
 * **Корректный fallback при приватности**: если у профиля в Steam скрыты подробности об играх (*Game details: Private*), сервис выводит прямую кнопку для перехода на [csstats.gg](https://csstats.gg) и позволяет указать статистику вручную через аккуратный спойлер.
 
-### 4. 📱 Готовность к Telegram Mini App (TMA)
+### 4. 📱 Telegram Mini App (TMA) & Telegram Бот
+* **Официальный Telegram-бот**: [@SusMetr_bot](https://t.me/SusMetr_bot) — открывает полноценный интерфейс проверки профилей прямо внутри Telegram в один клик.
 * Автоматическая инициализация Telegram WebApp SDK (`Telegram.WebApp`).
-* Поддержка **Haptic Feedback** (тактильная отдача при успехе, предупреждении и ошибке).
+* Поддержка **Haptic Feedback** (тактильная виброотдача при успехе, предупреждении и ошибке).
 * Автоматическое раскрытие на всю высоту экрана (`expand()`).
 * Синхронизация цветов шапки и фона со стилем Telegram.
 
@@ -220,6 +222,7 @@ npm start
 ## 🌐 Ссылки и статус проекта
 
 * **Рабочий продакшен**: [https://sus-meter2-2.vercel.app](https://sus-meter2-2.vercel.app)
+* **Telegram-бот**: [@SusMetr_bot](https://t.me/SusMetr_bot)
 * **Репозиторий на GitHub**: [https://github.com/mygnyt/SusMeter2.2](https://github.com/mygnyt/SusMeter2.2)
 * **Статус развёртывания**: 🟢 Активен, работает автономно 24/7
 

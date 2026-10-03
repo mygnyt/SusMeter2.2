@@ -108,6 +108,32 @@ export default function Home() {
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* Нижний колонтитул */}
+        <footer className="pt-8 pb-4 text-center text-xs text-slate-500 border-t border-white/5 flex items-center justify-center gap-3 sm:gap-4 flex-wrap">
+          <a
+            href="https://t.me/SusMetr_bot"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-slate-300 transition flex items-center gap-1.5"
+          >
+            <svg className="w-3.5 h-3.5 fill-[#229ED9]" viewBox="0 0 24 24">
+              <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.16l-1.97 9.28c-.15.65-.53.81-1.08.5l-3-2.21-1.45 1.39c-.16.16-.3.3-.61.3l.21-3.05 5.56-5.02c.24-.22-.05-.34-.38-.13l-6.87 4.33-2.95-.92c-.64-.2-.65-.64.13-.95l11.55-4.45c.53-.2 1 .12.86.88z" />
+            </svg>
+            <span>@SusMetr_bot</span>
+          </a>
+          <span className="text-slate-700">•</span>
+          <a
+            href="https://github.com/mygnyt/SusMeter2.2"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-slate-300 transition"
+          >
+            GitHub
+          </a>
+          <span className="text-slate-700">•</span>
+          <span>CS2 Profile Analyzer</span>
+        </footer>
       </div>
     </main>
   );
